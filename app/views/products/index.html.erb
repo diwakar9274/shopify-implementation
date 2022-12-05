@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Vendor</th>
+		<th>Type</th>
+		<th>Status</th>
+	</tr>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product["title"] %></td>
+			<td><%= product["body_html"].html_safe %></td>
+			<td><%= product["vendor"] %></td>
+			<td><%= product["product_type"] %></td>
+			<td><%= product["status"] %></td>
+		</tr>
+	<% end %>
+</table>
