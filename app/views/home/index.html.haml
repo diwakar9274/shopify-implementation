@@ -1,0 +1,27 @@
+.home-body
+	.container.d-flex.justify-content-center.mt-4.p-3.mb-4#shop
+		.card.p-4
+			.image.d-flex.flex-column.justify-content-center.align-items-center
+				%button.btn.btn-secondary
+					%img{height: "100", src: "https://cdn.shopify.com/assets/images/logos/shopify-bag.png?1341928631", width: "100"}/
+				%span.name.mt-3
+					= @shop["name"] || 'No Name'
+				%span.idd
+					= @shop["domain"] || 'No Domain'
+				.d-flex.flex-row.justify-content-center.align-items-center.gap-2
+					%span.idd1
+						= @shop["email"]
+					%span
+						%i.fa.fa-copy
+				.gap-3.mt-3.icons.d-flex.flex-row.justify-content-center.align-items-center
+					%span
+						%i.fa.fa-twitter
+					%span
+						%i.fa.fa-facebook-f
+					%span
+						%i.fa.fa-instagram
+					%span
+						%i.fa.fa-linkedin
+				.px-2.rounded.mt-4.date
+					%span.join
+						Joined #{@shop["created_at"]}

@@ -1,0 +1,38 @@
+.success-page
+	.order-information
+		%h4.thanks-text
+			Thanks Your Order is Complete
+		.variant-image
+			= image_tag(@product.images,size:"100x100") rescue image_tag("https://cdn.shopify.com/assets/images/logos/shopify-bag.png?1341928631",size:"100x100")
+		%table.table.table-bordered.order-information
+			%tr
+				%td.h4
+					PaymentId:
+				%td
+					= @payment&.id || ""
+			%tr
+				%td.h4
+					OrderId:
+				%td
+					= @order.id.to_s
+			%tr
+				%td.h4
+					ProductName:
+				%td
+					= @product&.title || "Default Title"
+			%tr
+				%td.h4
+					Vendor:
+				%td
+					= @product.vendor_name
+			%tr
+				%td.h4
+					Price:
+				%td
+					= @payment&.amount || ""
+			%tr
+				%td.h4
+					Financial Status:
+				%td
+					= @order.financial_status
+		= link_to "Back",:back

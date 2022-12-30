@@ -14,18 +14,24 @@
  *= require_self
  */
 
+@import 'products';
+@import 'orders';
 #shop{
   margin: auto;
   width: 50%;
   padding: 10px;
 }
-* {
-    margin: 0;
-    padding: 0
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    background-color: #000
+#application-body {
+  background: #f3f3f3;
 }
 
 .card {
@@ -42,12 +48,6 @@ body {
 
 .card:hover .image img {
     transform: scale(1.5)
-}
-
-.btn {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%
 }
 
 .name {
@@ -106,4 +106,49 @@ hr .new1 {
 
 .date {
     background-color: #ccc
+}
+
+.search_form{
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.logo {
+  cursor: pointer;
+}
+
+li, a, button {
+  font-size: 15px;
+  color: #edf0f1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #333;
+}
+
+.nav__links {
+  list-style: none;
+}
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+  color: #fff;
+}
+.nav__links li a:hover {
+  color: #0088a9
+}
+
+.table-margin-top{
+    margin-top: 10px;
 }
