@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 	def index
-		shopify = set_shopify_url
-		res = JSON.parse shopify.get('products.json').body.gsub('=>', ':')
-		@products = res["products"]
+		@variants = Product.fetch_variants
+		@products = Product.search(params[:option_name],params[:option_value]).includes(:variants)
 	end
 end

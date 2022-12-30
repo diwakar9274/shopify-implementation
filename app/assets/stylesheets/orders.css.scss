@@ -1,0 +1,20 @@
+.new-order-form-img{
+	display: flex;
+	justify-content: center;
+}
+.thanks-text{
+	display: flex;
+	justify-content: center;
+}
+.success-page{
+	display: flex;
+	justify-content: center;
+	.order-information{
+		display: block;
+		margin-top: 5rem;
+	}
+	.variant-image{
+		display: flex;
+		justify-content: center;
+	}
+}

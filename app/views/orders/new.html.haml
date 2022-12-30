@@ -1,0 +1,20 @@
+.container.new-form.mt-5
+  = form_with model: @order,url: orders_path,data: { turbo: false } do |f|
+    .mb-3.form-group.new-order-form-img
+      = image_tag(@product.images) rescue image_tag("https://cdn.shopify.com/assets/images/logos/shopify-bag.png?1341928631",size:"100x100")
+    .new-order-form-field
+      .form-group
+        = f.label :title
+        \:
+        = f.text_field :title,value: @product.title,readonly: true,class: "form-control"
+      .form-group
+        = f.label :quantity
+        \:
+        = f.number_field :quantity,class: "form-control"
+      .form-group
+        = f.label :variant_id
+        \:
+        .form-control.order-select-form
+          = f.select :variant_id,@product.variants.all.map {|variant| [variant.title,variant.id]}
+      .form-group
+        = f.submit class: "btn btn-danger"
