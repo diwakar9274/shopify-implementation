@@ -1,0 +1,15 @@
+.container
+  %table.table.table-bordered.table-margin-top
+    %thead.table-head.table-dark
+      %th Customer
+      %th Product
+      %th Price Id
+      %th Price
+      %th Currency
+    - @payments.each do |payment|
+      %tr
+        %td= payment.email
+        %td= payment.variant.product.title
+        %td= payment.id
+        %td= payment.amount
+        %td= payment.currency

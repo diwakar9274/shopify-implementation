@@ -1,0 +1,22 @@
+.container
+	%table.table.mb-2.table-bordered.table-margin-top
+		%thead.table-head.table-dark
+			%th Order Number
+			%th Order Id
+			%th Current total tax
+			%th Email
+			%th Financial Status
+			%th Total Price
+			%th Total tax
+			%th
+		%tr
+			- @orders.each do |order|
+				%tr
+					%td= order.number
+					%td= order.id
+					%td= order.current_total_tax
+					%td= order.email
+					%td= order.financial_status
+					%td= order.total_price_usd
+					%td= order.total_tax
+					%td= link_to 'Show',order_path(order)

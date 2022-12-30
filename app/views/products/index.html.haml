@@ -1,0 +1,36 @@
+.search_form
+  = form_with url: products_path,method: :get,data: { controller: "filters", filters_target: "form", turbo_frame: "table" } do |form|
+    .form-group
+      = form.label :option_name, "Filter: "
+      = form.select :option_name,@variants.keys,{ prompt: "Variant Name" },{class: "form-select"}
+      = form.select :option_value,[],{ prompt: "Select Variant Name" },{class: "form-select",data: { action: "change->filters#submit",filters_target: "variantValue" }}
+      = form.submit "Search",class: "btn btn-primary",id: "reset-button"
+.container
+  %table.table.table-bordered.table-margin-top
+    %thead.table-head.table-dark
+      %th Title
+      %th Description
+      %th Vendor
+      %th Type
+      %th Status
+      %th
+    - @products.each do |product|
+      %tr
+        %td= product["title"]
+        %td= product["description"].html_safe
+        %td= product["vendor"]
+        %td= product["product_type"]
+        %td= product["status"]
+        %td= link_to "Place Order",new_order_path(product_id: product.id),{class: 'btn btn-primary'}
+:javascript
+  $('#option_name').on('change',function(){
+    const variantType = this.value;
+    const variantValue = $("#option_value");
+    const options = JSON.parse('#{raw(@variants.to_json)}');
+    variantValue.html("<option value=''>Variant Value</option>");
+    const values = options[variantType]
+    for (let i = 0; i < values.length; i++) {
+      const option = `<option value='${values[i]}'>${values[i]}</option>`
+      variantValue.append(option);
+    }
+  });
